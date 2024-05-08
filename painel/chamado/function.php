@@ -58,3 +58,36 @@ function ListarEquipamento()
         return null;
     }
 }
+
+function CadastrarChamado($desc, $status, $cat, $userId, $equipamento,$pagina)
+{
+    $sql = 'insert into tb_chamado set 
+    ds_chamado = "' . $desc . '",
+    st_chamado = "'.$status.'",
+    id_categoria = "'.$cat.'",
+    id_usuario = "'.$userId.'",
+    id_equipamento = "'.$equipamento.'"
+    ';
+    Executar($sql, "Cadastrado com sucesso!", "Ops! Equipamento não cadastrado!", $pagina);
+}
+
+
+function ListarChamado()
+{
+    $sql = 'select 
+    cd_chamado, ds_chamado, st_chamado, dt_registro_chamado, 
+    nm_categoria, nm_usuario, nm_tipo_equipamento
+    from tb_chamado
+    inner join tb_tipo_equipamento on id_equipamento = cd_tipo_equipamento
+    inner join tb_usuario on id_usuario = cd_usuario
+    inner join tb_categoria on id_categoria = cd_categoria
+    order by nm_tipo_equipamento asc';
+    $res = $GLOBALS['con']->query($sql);
+    if ($res === null) {
+        echo "Sem registros!";
+    } elseif ($res->num_rows > 0) {
+        return $res;
+    } else {
+        return null;
+    }
+}

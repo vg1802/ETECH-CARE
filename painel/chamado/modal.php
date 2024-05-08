@@ -5,12 +5,12 @@
         <div class="modal-content">
             <form method="post" class="form-group" action="">
                 <div class="modal-header">
-                    Cadastrar categoria
+                    Cadastrar chamado
                 </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" placeholder="Descrição chamado" name="tipo" required>
+                    <input type="text" class="form-control" placeholder="Descrição chamado" name="desc" required>
                 </div>
-                <select name="tipo" class="form-control">
+                <select name="cat" class="form-control">
                     <option disabled selected>Selecione um tipo de categoria...</option>
                     <?php
                     $mostrar = ListarCategoria();
@@ -23,7 +23,7 @@
                     }
                     ?>
                 </select>
-                <select name="tipo" class="form-control">
+                <select name="equipamento" class="form-control">
                     <option disabled selected>Selecione um Equipamento...</option>
                     <?php
                     $mostrar = ListarEquipamento();
@@ -66,31 +66,7 @@
     </div>
 </div>
 
-
-
-<!-- editar categoria -->
-<div class="modal fade" id="editar_categoria" data-backdrop="static">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <form method="post" class="form-group" action="">
-                <div class="modal-header">
-                    Editar Categoria
-                </div>
-                <div class="modal-body">
-                    <input type="text" name="cd" id="cd" readonly="readonly">
-                    <input type="text" class="form-control" placeholder="Tipo de Equipamento" name="categoria" id="categoria" required>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <input type="submit" class="btn btn-info" value="Alterar" name="action">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- excluir categoria -->
-<div class="modal fade" id="excluir_categoria" data-backdrop="static">
+<div class="modal fade" id="excluir_tipo" data-backdrop="static">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <form method="post" class="form-group" action="">
@@ -108,3 +84,4 @@
         </div>
     </div>
 </div>
+

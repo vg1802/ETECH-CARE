@@ -36,23 +36,69 @@ $pagina = 'abrir_chamado.php';
                 <th></th>
               </tr>
             </thead>
+            <tbody>
+              <?php
+              $listar = ListarChamado();
+              if ($listar !== null) {
+                while ($l = $listar->fetch_array()) {
+              ?>
+                  <tr>
+                    <td class="text-center text-capitalize">
+                      <?php echo $l['cd_chamado']; ?>
+                    </td>
+                    <td>
+                      <?php echo $l['ds_chamado']; ?>
+                    </td>
+                    <td>
+                      <?php echo $l['st_chamado']; ?>
+                    </td>
+                    <td>
+                      <?php echo $l['dt_registro_chamado']; ?>
+                    </td>
+                    <td>
+                      <?php echo $l['nm_categoria']; ?>
+                    </td>
+                    <td>
+                      <?php echo $l['nm_usuario']; ?>
+                    </td>
+                    <td>
+                      <?php echo $l['nm_tipo_equipamento']; ?>
+                    </td>
+                    <td class="text-center">
+                      <button class="btn btn-info btn-sm editar" data-toggle="modal" data-target="#editar_chamado" cd="<?php echo $l['cd_chamado']; ?>"  title="editar">
+                        <i class="bi bi-pencil"></i>
+                      </button>
+                      <button class="btn btn-danger btn-sm excluir" data-toggle="modal" data-target="#excluir_chamado" cd="<?php echo $l['cd_chamado']; ?>" title="excluir">
+                        <i class="bi bi-trash3"></i>
+                      </button>
+                    </td>
+                  </tr>
+              <?php
+                }
+              } else {
+                echo 'Sem registros!';
+              }
+              ?>
+            </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
   <?php
+  $userId = $_SESSION['id'];
+  $status = 1;
   if (!empty($_POST)) {
     if ($_POST['action'] == "Cadastrar") {
-      CadastrarEquipamento(
-        $_POST['serie'],
-        $_POST['patrimonio'],
-        $_POST['descricao'],
-        $_POST['local'],
-        $_POST['tipo'],
-        $_POST['modelo'],
-        $pagina
-      );
+      CadastrarChamado(
+        $_POST['desc'], // Descrição do chamado
+        $status,        // Status do chamado
+        $_POST['cat'],  // ID da categoria
+        $userId,        // ID do usuário
+        $_POST['equipamento'], // ID do equipamento
+        $pagina         // Página para redirecionamento
+    );
+    
     } else if ($_POST['action'] == "Alterar") {
       EditarEquipamento(
         $_POST['cd'],
