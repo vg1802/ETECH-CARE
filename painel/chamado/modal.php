@@ -85,3 +85,65 @@
     </div>
 </div>
 
+
+<div class="modal fade" id="cadastrar_cat" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form method="post" class="form-group" action="">
+                <div class="modal-header">
+                    Cadastrar categoria
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Nome categoria" name="nome" required>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-primary" value="Cadastrar" name="action">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- editar categoria -->
+<div class="modal fade" id="editar_categoria" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form method="post" class="form-group" action="">
+                <div class="modal-header">
+                    Editar Categoria
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="cd" id="cd" readonly="readonly">
+                    <input type="text" class="form-control" placeholder="Tipo de Equipamento" name="categoria" id="categoria" required>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-info" value="Alterar" name="action">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- excluir categoria -->
+<div class="modal fade" id="excluir_categoria" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form method="post" class="form-group" action="">
+                <div class="modal-header">
+                    Excluir Tipo de Equipamento
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="cd" id="cd">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <input type="submit" class="btn btn-danger" value="Excluir" name="action">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
