@@ -1,0 +1,19 @@
+FUNCIONAIS
+CLIENTE:
+- Abrir chamado (por tipo)
+- Confirmar chamado
+- Login
+- Acessar histórico
+- Recuperar senha
+
+NÃO-FUNCIONAIS:
+- Categorias de chamado
+- Urgência de acordo com categoria, equipamento, usuário
+- Restringir quantidade de chamados por categoria no mesmo equipamento
+- Somente professores, administrativos e representantes de classe podem abrir chamado
+
+REGRAS DE NEGÓCIO:
+- Feedback para usuário (painel)
+- Controlar / limitar quantidade de tickets abertos por cliente
+- Chamados abertos listados por tipo de demanda
+- Técnico "puxa" para sua timeline
